@@ -8,7 +8,14 @@ export function ResetForm({ setSubmitted }) {
 
     return (
         <Form onSubmit={onSubmit}>
-            <Input name="email" type="email" placeholder="Email" required />
+            <Input
+                name="email"
+                type="email"
+                label="Email"
+                placeholder="example@email.com"
+                required
+            />
+
             <Button type="submit">Submit</Button>
         </Form>
     )
