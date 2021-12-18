@@ -8,3 +8,5 @@ export const HomeRoute = () => {
     </>
   )
 }
+
+export default HomeRoute;

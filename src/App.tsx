@@ -1,8 +1,12 @@
-import { useEffect } from "react";
+import { Suspense, lazy, useEffect } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 
-import { Title } from "./components";
-import { HomeRoute, SignInRoute, SignUpRoute, ResetRoute } from "./routes";
+import { Title, Loader } from "./components";
+
+const HomeRoute = lazy(() => import('./routes/Home'));
+const SignInRoute = lazy(() => import('./routes/SignIn'));
+const SignUpRoute = lazy(() => import('./routes/SignUp'));
+const ResetRoute = lazy(() => import('./routes/Reset'));
 
 enum Themes {
   Light = 'light-theme',
@@ -29,12 +33,14 @@ export function App() {
         <Link to="/">My App</Link>
       </Title>
 
-      <Routes>
-        <Route path="/" element={<HomeRoute />} />
-        <Route path="/sign-in" element={<SignInRoute />} />
-        <Route path="/sign-up" element={<SignUpRoute />} />
-        <Route path="/reset" element={<ResetRoute />} />
-      </Routes>
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route path="/" element={<HomeRoute />} />
+          <Route path="/sign-in" element={<SignInRoute />} />
+          <Route path="/sign-up" element={<SignUpRoute />} />
+          <Route path="/reset" element={<ResetRoute />} />
+        </Routes>
+      </Suspense>
     </>
   );
 }

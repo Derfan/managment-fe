@@ -17,3 +17,5 @@ export const SignUpRoute = () => {
     </Card>
   )
 }
+
+export default SignUpRoute;

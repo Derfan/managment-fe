@@ -17,3 +17,5 @@ export const SignInRoute = () => {
     </Card>
   )
 }
+
+export default SignInRoute;

@@ -27,3 +27,5 @@ export const ResetRoute = () => {
     </div>
   )
 }
+
+export default ResetRoute;
