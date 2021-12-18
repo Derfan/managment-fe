@@ -6,13 +6,15 @@ type PropsType = {
 };
 
 export const Form:FunctionComponent<PropsType> = ({ children, onSubmit }) => {
-    const { handleSubmit, register } = useForm();
+    const { handleSubmit, register, formState: { errors } } = useForm();
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            {Children.map(children, (child) =>
-                child.props.name ? cloneElement(child, { register }) : child
-            )}
+            {Children.map(children, (child) => {
+                const { name } = child.props;
+
+                return name ? cloneElement(child, { register, error: errors[name] }) : child
+            })}
         </form>
     );
 }

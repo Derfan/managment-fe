@@ -13,7 +13,6 @@ export function ResetForm({ setSubmitted }) {
                 type="email"
                 label="Email"
                 placeholder="example@email.com"
-                required
             />
 
             <Button type="submit">Submit</Button>

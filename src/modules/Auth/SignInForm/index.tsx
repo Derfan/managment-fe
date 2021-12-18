@@ -5,12 +5,14 @@ export function SignInForm() {
 
     return (
         <Form onSubmit={onSubmit}>
-            <Input 
+            <Input
                 name="email"
                 type="email"
                 label="Email"
                 placeholder="example@email.com"
-                required
+                validation={{
+                    required: true
+                }}
             />
 
             <Input 
@@ -18,7 +20,17 @@ export function SignInForm() {
                 type="password"
                 label="Password"
                 placeholder="********"
-                required
+                validation={{
+                    required: true,
+                    minLength: {
+                        value: 8,
+                        message: 'Incorrect length min 8',
+                    },
+                    maxLength: {
+                        value: 16,
+                        message: 'Incorrect length max 16',
+                    }
+                }}
             />
 
             <Button type="submit">Submit</Button>
