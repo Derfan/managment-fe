@@ -1,7 +1,8 @@
 import { Suspense, lazy, useEffect } from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
-import { Title, Loader } from "./components";
+import { Header } from "./modules";
+import { Loader } from "./components";
 
 const HomeRoute = lazy(() => import('./routes/Home'));
 const SignInRoute = lazy(() => import('./routes/SignIn'));
@@ -29,9 +30,7 @@ export function App() {
 
   return (
     <>
-      <Title tag="h1">
-        <Link to="/">My App</Link>
-      </Title>
+      <Header />
 
       <Suspense fallback={<Loader />}>
         <Routes>

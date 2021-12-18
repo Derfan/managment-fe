@@ -1,1 +1,2 @@
-export { SignInForm, SignUpForm, ResetForm } from "./AuthModule";
+export { SignInForm, SignUpForm, ResetForm } from "./Auth";
+export { Header } from './Header';

@@ -1,0 +1,15 @@
+.card {
+    background-color: white;
+
+    width: 30%;
+    min-width: 320px;
+    padding: 40px 20px;
+    margin: auto;
+
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+.card > hr {
+    border-color: var(--main-bg-color);
+}
