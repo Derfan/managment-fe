@@ -1,0 +1,8 @@
+.button {
+    min-width: 100px;
+    padding: 15px 10px;
+}
+
+.button:hover {
+    cursor: pointer;
+}

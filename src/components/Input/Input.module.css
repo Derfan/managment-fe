@@ -1,0 +1,26 @@
+.inputWrapper {
+    display: flex;
+    flex-direction: column;
+
+    padding-bottom: 15px;
+}
+
+.label {
+    padding-bottom: 5px;
+}
+
+.inputField {
+    padding: 15px 10px;
+}
+
+.error > .label {
+    color: var(--error-color);
+}
+
+.error > .inputField {
+    border-color: var(--error-color);
+}
+
+.errorMessage {
+    color: var(--error-color);
+}
