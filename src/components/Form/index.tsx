@@ -2,7 +2,7 @@ import { FunctionComponent, Children, cloneElement } from 'react';
 import { useForm } from "react-hook-form";
 
 type PropsType = {
-    onSubmit: (formData:any) => void,
+    onSubmit: (formData:object) => void,
 };
 
 export const Form:FunctionComponent<PropsType> = ({ children, onSubmit }) => {

@@ -10,9 +10,7 @@ export function SignInForm() {
                 type="email"
                 label="Email"
                 placeholder="example@email.com"
-                validation={{
-                    required: true
-                }}
+                validation={{ required: true }}
             />
 
             <Input 
