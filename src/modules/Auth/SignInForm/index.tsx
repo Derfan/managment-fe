@@ -5,7 +5,7 @@ import { Form, Input, Button } from '../../../components';
 export function SignInForm() {
     const { handleSubmit, register, formState: { errors } } = useForm();
 
-    const onSubmit = (formData) => console.log('formData', formData);
+    const onSubmit = (formData: { [key: string]: string }) => console.log('formData', formData);
 
     return (
         <Form onSubmit={handleSubmit(onSubmit)}>

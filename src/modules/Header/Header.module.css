@@ -6,5 +6,7 @@
 
     padding: 15px;
 
-    background-color: var(--secondary-bg-color);
+    background-color: var(--primary);
+
+    color: var(--on-primary);
 }

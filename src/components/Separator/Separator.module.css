@@ -11,7 +11,7 @@
     width: 100%;
     height: 1px;
 
-    background-color: var(--main-bg-color);
+    background-color: var(--on-surface);
 }
 
 .text {

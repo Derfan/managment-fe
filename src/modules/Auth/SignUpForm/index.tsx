@@ -19,7 +19,7 @@ export function SignUpForm() {
     const passwordRef = useRef(null);
     const { handleSubmit, register, watch, formState: { errors } } = useForm();
 
-    const onSubmit = (formData) => console.log('formData', formData);
+    const onSubmit = (formData:{ [key:string]: string }) => console.log('formData', formData);
 
     passwordRef.current = watch('password');
 
@@ -55,10 +55,7 @@ export function SignUpForm() {
                 type="password"
                 label="Password"
                 placeholder="********"
-                {...register(
-                    'password',
-                    PASSWORD_VALIDATION,
-                )}
+                {...register('password', PASSWORD_VALIDATION)}
                 error={errors.password}
                 required
             />

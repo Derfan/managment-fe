@@ -14,13 +14,13 @@
 }
 
 .error > .label {
-    color: var(--error-color);
+    color: var(--error);
 }
 
 .error > .inputField {
-    border-color: var(--error-color);
+    border-color: var(--error);
 }
 
 .errorMessage {
-    color: var(--error-color);
+    color: var(--error);
 }

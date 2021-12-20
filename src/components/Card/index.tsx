@@ -3,7 +3,7 @@ import cns from "classnames";
 
 import { Title } from "../Title";
 import { Separator } from "../Separator";
-import cn from "./Card.module.css";
+import * as cn from "./Card.module.css";
 
 type PropsType = {
   title?: string
