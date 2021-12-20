@@ -1,15 +1,15 @@
 import { Link } from "react-router-dom";
 
 import { SignUpForm, OAuthForm } from "../../modules";
-import { Card } from "../../components";
+import { Card, Separator } from "../../components";
 
 export const SignUpRoute = () => {
   return (
     <Card title="Sign Up">
       <SignUpForm />
-      <hr />
+      <Separator>OR</Separator>
       <OAuthForm />
-      <hr />
+      <Separator />
       <p>
         <Link to="/sign-in">Already have an account? Please sign in.</Link>
       </p>

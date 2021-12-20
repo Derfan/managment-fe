@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-import { Card } from "../../components";
+import { Card, Separator } from "../../components";
 import { ResetForm } from "../../modules";
 
 export const ResetRoute = () => {
@@ -16,7 +16,7 @@ export const ResetRoute = () => {
           ? <p>We send an email with innstructions. Please check your mail box.</p> 
           : <ResetForm setSubmitted={setSubmitted} />
         }
-        <hr />
+        <Separator />
         <p>
           <Link to="/sign-in">Already have an account? Please sign in.</Link>
         </p>
