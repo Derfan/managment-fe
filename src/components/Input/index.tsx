@@ -25,7 +25,7 @@ enum DefaultErrorMessages {
     required = 'Field is mandatory'
 }
 
-export const Input:FunctionComponent<PropsType> = forwardRef(({ name, type, label, className, placeholder, required, error, onChange, onBlur }, ref) => {
+export const Input:FunctionComponent<PropsType> = forwardRef(({ name, type, label, className, placeholder, required, error, onChange, onBlur }, ref:any) => {
     const errorMessage = useMemo(
         () => error ? error.message || DefaultErrorMessages[error.type] : null,
         [error]
