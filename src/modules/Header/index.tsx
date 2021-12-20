@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 import { Title } from "../../components";
+import { ThemeSwitcher } from "../ThemeSwitcher";
 import cn from "./Header.module.css";
 
 export const Header = () => {
@@ -9,6 +10,8 @@ export const Header = () => {
             <Title tag="h1">
                 <Link to="/">My App</Link>
             </Title>
+
+            <ThemeSwitcher />
         </header>
     )
 };

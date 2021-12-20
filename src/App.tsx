@@ -1,4 +1,4 @@
-import { Suspense, lazy, useEffect } from "react";
+import { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import { Header } from "./modules";
@@ -9,25 +9,7 @@ const SignInRoute = lazy(() => import('./routes/SignIn'));
 const SignUpRoute = lazy(() => import('./routes/SignUp'));
 const ResetRoute = lazy(() => import('./routes/Reset'));
 
-enum Themes {
-  Light = 'light-theme',
-  Dark = 'dark-theme',
-}
-
 export function App() {
-  useEffect(() => {
-    const theme = window.localStorage.getItem('theme');
-    const body = document.body;
-    let className = theme;
-
-    if (!theme) {
-      className = Themes.Light;
-      window.localStorage.setItem('theme', className);
-    }
-
-    body.classList.add(className);
-  }, []);
-
   return (
     <>
       <Header />
