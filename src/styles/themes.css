@@ -1,0 +1,13 @@
+body.light-theme {
+  --main-bg-color: #f1f1f1;
+  --main-text-color: black;
+  --secondary-bg-color: white;
+  --error-color: red;
+}
+
+body.dark-theme {
+  --main-bg-color: black;
+  --main-text-color: #f1f1f1;
+  --secondary-bg-color: #2a2a2a;
+  --error-color: red;
+}
