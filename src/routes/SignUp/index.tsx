@@ -1,7 +1,5 @@
-import { Link } from "react-router-dom";
-
 import { SignUpForm, OAuthForm } from "../../modules";
-import { Card, Separator } from "../../components";
+import { Card, Separator, LinksList } from "../../components";
 
 export const SignUpRoute = () => {
   return (
@@ -10,12 +8,7 @@ export const SignUpRoute = () => {
       <Separator>OR</Separator>
       <OAuthForm />
       <Separator />
-      <p>
-        <Link to="/sign-in">Already have an account? Please sign in.</Link>
-      </p>
-      <p>
-        <Link to="/reset">Forget your password? Please reset.</Link>
-      </p>
+      <LinksList properties={['sign-in', 'reset']} />
     </Card>
   )
 }

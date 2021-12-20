@@ -1,0 +1,17 @@
+.list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: 20px;
+}
+
+.item {
+    margin-top: 10px;
+}
+
+.item:first-child {
+    margin-top: 0;
+}
+
+

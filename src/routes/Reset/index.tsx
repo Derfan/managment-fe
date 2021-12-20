@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
-import { Card, Separator } from "../../components";
+import { Card, Separator, LinksList } from "../../components";
 import { ResetForm } from "../../modules";
 
 export const ResetRoute = () => {
@@ -17,12 +16,7 @@ export const ResetRoute = () => {
           : <ResetForm setSubmitted={setSubmitted} />
         }
         <Separator />
-        <p>
-          <Link to="/sign-in">Already have an account? Please sign in.</Link>
-        </p>
-        <p>
-          <Link to="/sign-up">New here? Please sign up.</Link>
-        </p>
+        <LinksList properties={['sign-in', 'sign-up']} />
       </Card>
     </div>
   )
