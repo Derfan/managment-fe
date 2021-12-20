@@ -1,32 +1,8 @@
-import { FunctionComponent, useMemo } from "react";
+import { FunctionComponent, forwardRef, useMemo } from "react";
 import cns from "classnames";
 
 import cn from "./Input.module.css";
-
-type ValidationType = {
-    required?: string|boolean
-    maxLength?: {
-        value: number
-        message: string
-    }
-    minLength?: {
-        value: number
-        message: string
-    }
-    max?: {
-        value: number
-        message: string
-    }
-    min?: {
-        value: number
-        message: string
-    }
-    pattern?: {
-        value: RegExp
-        message: string
-    }
-    validate?: Function|object
-};
+import { ChangeHandler } from "react-hook-form";
 
 type ErrorType = {
     type: string
@@ -40,18 +16,18 @@ type PropsType = {
     placeholder?: string
     className?: string
     required?: boolean
-    validation?: ValidationType
     error?: ErrorType
-    register?: (fieldName:string, config:object) => void
+    onChange: ChangeHandler
+    onBlur: ChangeHandler
 };
 
-enum ErrorMessages {
+enum DefaultErrorMessages {
     required = 'Field is mandatory'
 }
 
-export const Input:FunctionComponent<PropsType> = ({ name, type, label, className, placeholder, validation, error, register }) => {
+export const Input:FunctionComponent<PropsType> = forwardRef(({ name, type, label, className, placeholder, required, error, onChange, onBlur }, ref) => {
     const errorMessage = useMemo(
-        () => error ? error.message || ErrorMessages[error.type] : null,
+        () => error ? error.message || DefaultErrorMessages[error.type] : null,
         [error]
     );
 
@@ -59,23 +35,25 @@ export const Input:FunctionComponent<PropsType> = ({ name, type, label, classNam
         <div className={cns(cn.inputWrapper, { [cn.error]: error })}>
             {label && (
                 <label className={cn.label} htmlFor={name}>
-                    {label} {validation?.required && '*'}
+                    {label} {required && '*'}
                 </label>
             )}
 
             <input
-                {...register(name, validation)}
+                ref={ref}
                 id={name}
-                type={type}
                 name={name}
+                type={type}
                 placeholder={placeholder}
                 className={cns(cn.inputField, className)}
+                onChange={onChange}
+                onBlur={onBlur}
             />
 
             {errorMessage && <span className={cn.errorMessage}>{errorMessage}</span>}
         </div>
     )
-}
+})
 
 Input.defaultProps = {
     type: "text",

@@ -4,6 +4,7 @@
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "description": "",
   "source": "src/index.html",
+  "types": "index.d.ts",
   "scripts": {
     "start": "parcel",
     "build": "parcel build"

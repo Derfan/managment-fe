@@ -2,6 +2,7 @@ import { FunctionComponent } from "react";
 import cns from "classnames";
 
 import { Title } from "../Title";
+import { Separator } from "../Separator";
 import cn from "./Card.module.css";
 
 type PropsType = {
@@ -15,7 +16,7 @@ export const Card:FunctionComponent<PropsType> = ({ title, className, children }
       {title && (
         <>
           <Title>{title}</Title>
-          <hr />
+          <Separator />
         </>
       )}
       {children}

@@ -4,3 +4,4 @@ export { Form } from './Form';
 export { Title } from './Title';
 export { Card } from './Card';
 export { Loader } from './Loader';
+export { Separator } from './Separator';
