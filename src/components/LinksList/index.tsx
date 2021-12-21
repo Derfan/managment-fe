@@ -8,7 +8,7 @@ type PropsType =  {
 
 const messages = {
     'sign-in': 'Already have an account? Please sign in.',
-    'sign-up': 'New here? Please sign up.',
+    'sign-up': 'New here? Please create an account.',
     'reset': 'Forget your password? Please reset.',
 };
 
