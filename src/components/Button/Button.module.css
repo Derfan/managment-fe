@@ -18,3 +18,13 @@
 
     background-color: var(--secondary-variant);
 }
+
+.button:focus {
+    transform: scale(95%);
+}
+
+.disabled {}
+
+.disabled:hover {
+    cursor: not-allowed;
+}

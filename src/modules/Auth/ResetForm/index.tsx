@@ -5,8 +5,8 @@ import { Form, Input, Button } from '../../../components';
 export function ResetForm({ setSubmitted }) {
     const { handleSubmit, register, formState: { errors } } = useForm();
 
-    const onSubmit = (formData:{ [key:string]: string }) => {
-        console.log('formData', formData);
+    const onSubmit = ({ email }:{ email: string }) => {
+        console.log('formData', email);
         setSubmitted();
     }
 

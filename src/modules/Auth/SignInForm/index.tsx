@@ -1,11 +1,22 @@
-import { useForm } from 'react-hook-form';
 
+import { useContext } from 'react';
+import { useForm } from 'react-hook-form';
+import { useMutation } from "@apollo/client";
+
+import { LOGIN } from '../../../api';
 import { Form, Input, Button } from '../../../components';
+import { AuthContext } from '../AuthProvider';
 
 export function SignInForm() {
+    const [loginUser] = useMutation(LOGIN);
+    const { login } = useContext(AuthContext);
     const { handleSubmit, register, formState: { errors } } = useForm();
 
-    const onSubmit = (formData: { [key: string]: string }) => console.log('formData', formData);
+    const onSubmit = async ({ email, password }:{ email: string, password: string }) => {
+        const { data } = await loginUser({ variables: { email, password } });
+        
+        login(data.login.token);
+    };
 
     return (
         <Form onSubmit={handleSubmit(onSubmit)}>
@@ -33,8 +44,8 @@ export function SignInForm() {
                             message: 'Incorrect length min 8',
                         },
                         maxLength: {
-                            value: 16,
-                            message: 'Incorrect length max 16',
+                            value: 32,
+                            message: 'Incorrect length max 32',
                         },
                     }
                 )}

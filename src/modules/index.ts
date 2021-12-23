@@ -1,2 +1,2 @@
-export { SignInForm, SignUpForm, ResetForm, OAuthForm } from "./Auth";
+export { SignInForm, SignUpForm, ResetForm, OAuthForm, AuthProvider, AuthContext } from "./Auth";
 export { Header } from './Header';

@@ -15,7 +15,7 @@ const messages = {
 export const LinksList = ({ properties }:PropsType) => {
     return (
         <div className={cn.list}>
-            {properties.map(key => <Link to={`/${key}`} className={cn.item}>{messages[key]}</Link>)}
+            {properties.map(key => <Link key={key} to={`/${key}`} className={cn.item}>{messages[key]}</Link>)}
         </div>
     )
 };

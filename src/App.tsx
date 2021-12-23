@@ -1,7 +1,7 @@
 import { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 
-import { Header } from "./modules";
+import { Header, AuthProvider } from "./modules";
 import { Loader } from "./components";
 
 const HomeRoute = lazy(() => import('./routes/Home'));
@@ -11,7 +11,7 @@ const ResetRoute = lazy(() => import('./routes/Reset'));
 
 export function App() {
   return (
-    <>
+    <AuthProvider>
       <Header />
 
       <Suspense fallback={<Loader />}>
@@ -22,6 +22,6 @@ export function App() {
           <Route path="/reset" element={<ResetRoute />} />
         </Routes>
       </Suspense>
-    </>
+    </AuthProvider>
   );
 }

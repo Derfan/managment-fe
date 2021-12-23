@@ -1,10 +1,28 @@
-import { Link } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+import { useContext } from "react";
+
+import { GET_USERS } from '../../api';
+import { AuthContext } from '../../modules';
+import { Button, Loader } from '../../components';
 
 export const HomeRoute = () => {
+  const { isAuth } = useContext(AuthContext);
+  const { data, loading, refetch } = useQuery(GET_USERS, { skip: !isAuth });
+  
   return (
     <>
-      <p><Link to="/sign-in">Sign In</Link></p>
-      <p><Link to="/sign-up">Sign Up</Link></p>
+      {
+        isAuth
+          ? (
+            <>
+              {data?.users?.map(({ id, firstName, lastName,  }) => {
+                return <div key={id}>{firstName} {lastName}</div>
+              })}
+              <Button onClick={() => refetch()} disabled={loading}>{loading ? <Loader /> : 'Get Users'}</Button>
+            </>
+          )
+          : <p>Welcome, please authorize</p>
+      }
     </>
   )
 }
