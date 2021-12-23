@@ -1,5 +1,5 @@
-import { SignUpForm, OAuthForm } from "../../modules";
-import { Card, Separator, LinksList } from "../../components";
+import { SignUpForm, OAuthForm, LinksList } from "../../modules";
+import { Card, Separator } from "../../components";
 
 export const SignUpRoute = () => {
   return (

@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import { Card, Separator, LinksList } from "../../components";
-import { ResetForm } from "../../modules";
+import { Card, Separator } from "../../components";
+import { ResetForm, LinksList } from "../../modules";
 
 export const ResetRoute = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
