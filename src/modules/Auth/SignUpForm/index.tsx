@@ -1,7 +1,18 @@
-import { useRef } from 'react';
+import { useCallback, useContext, useRef } from 'react';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import { useMutation } from '@apollo/client';
 
 import { Form, Input, Button } from '../../../components';
+import { CREATE_USER, LOGIN } from '../../../api';
+import { AuthContext } from '../AuthProvider';
+
+type FormData = {
+    email:string
+    password:string
+    firstName:string
+    lastName:string
+};
 
 const PASSWORD_VALIDATION = {
     required: true,
@@ -15,11 +26,32 @@ const PASSWORD_VALIDATION = {
     },
 };
 
-export function SignUpForm() {
-    const passwordRef = useRef(null);
-    const { handleSubmit, register, watch, formState: { errors } } = useForm();
+const useSignUpUser = () => {
+    const { login } = useContext(AuthContext);
+    const navigate = useNavigate();
 
-    const onSubmit = (formData:{ [key:string]: string }) => console.log('formData', formData);
+    const [createUser] = useMutation(CREATE_USER);
+    const [loginUser] = useMutation(LOGIN);
+
+    return useCallback(async (userData:FormData) => {
+        await createUser({ variables: userData });
+
+        const { data } = await loginUser({ variables: { email: userData.email, password: userData.password } });
+
+        login(data.login.token);
+        navigate('/');
+    }, []);
+};
+
+export function SignUpForm() {
+    const signUpUser = useSignUpUser();
+    
+    const { handleSubmit, register, watch, formState: { errors } } = useForm();
+    const passwordRef = useRef(null);
+
+    const onSubmit = async (formData:FormData) => {
+        await signUpUser(formData);
+    };
 
     passwordRef.current = watch('password');
 

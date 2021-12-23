@@ -1,6 +1,7 @@
 
 import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import { useMutation } from "@apollo/client";
 
 import { LOGIN } from '../../../api';
@@ -10,12 +11,14 @@ import { AuthContext } from '../AuthProvider';
 export function SignInForm() {
     const [loginUser] = useMutation(LOGIN);
     const { login } = useContext(AuthContext);
+    const navigate = useNavigate();
     const { handleSubmit, register, formState: { errors } } = useForm();
 
     const onSubmit = async ({ email, password }:{ email: string, password: string }) => {
         const { data } = await loginUser({ variables: { email, password } });
         
         login(data.login.token);
+        navigate('/');
     };
 
     return (

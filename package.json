@@ -5,7 +5,7 @@
   "description": "",
   "source": "src/index.html",
   "scripts": {
-    "dev": "parcel --open",
+    "dev": "parcel src/index.html",
     "start": "node server.js",
     "build": "parcel build",
     "heroku-postbuild": "yarn build"
