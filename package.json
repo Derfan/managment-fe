@@ -10,6 +10,10 @@
     "build": "parcel build",
     "heroku-postbuild": "yarn build"
   },
+  "engines": {
+    "node": "16.13.1",
+    "yarn": "1.22.17"
+  },
   "author": "Borys Medvediev <medvediev.b@gmail.com>",
   "license": "MIT",
   "dependencies": {
