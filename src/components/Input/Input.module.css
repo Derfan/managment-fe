@@ -1,8 +1,11 @@
 .inputWrapper {
+    flex: 1;
     display: flex;
     flex-direction: column;
 
     padding-bottom: 15px;
+
+    min-width: 100px;
 }
 
 .label {
@@ -10,7 +13,12 @@
 }
 
 .inputField {
+    background-color: #EEF2F7;
+
     padding: 15px 10px;
+
+    border: none;
+    border-radius: 5px;
 }
 
 .error > .label {
@@ -18,7 +26,7 @@
 }
 
 .error > .inputField {
-    border-color: var(--error);
+    outline-color: var(--error);
 }
 
 .errorMessage {

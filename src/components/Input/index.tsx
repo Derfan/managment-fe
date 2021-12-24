@@ -1,8 +1,8 @@
 import { FunctionComponent, forwardRef, useMemo } from "react";
 import cns from "classnames";
+import { ChangeHandler } from "react-hook-form";
 
 import * as cn from "./Input.module.css";
-import { ChangeHandler } from "react-hook-form";
 
 type ErrorType = {
     type: string

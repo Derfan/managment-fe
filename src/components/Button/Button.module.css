@@ -15,12 +15,10 @@
 
 .button:hover {
     cursor: pointer;
-
-    background-color: var(--secondary-variant);
 }
 
 .button:focus {
-    transform: scale(95%);
+    background-color: var(--secondary-variant);
 }
 
 .disabled {}

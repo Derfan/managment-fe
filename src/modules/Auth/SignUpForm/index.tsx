@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 
-import { Form, Input, Button } from '../../../components';
+import { Form, Input, Button, Row } from '../../../components';
 import { CREATE_USER, LOGIN } from '../../../api';
 import { AuthContext } from '../AuthProvider';
 
@@ -57,22 +57,24 @@ export function SignUpForm() {
 
     return (
         <Form onSubmit={handleSubmit(onSubmit)}>
-            <Input
-                name="firstName"
-                label="First Name"
-                placeholder="John"
-                {...register('firstName', { required: true })}
-                error={errors.firstName}
-                required
-            />
-            <Input
-                name="lastName"
-                label="Last Name"
-                placeholder="Doe"
-                {...register('lastName', { required: true })}
-                error={errors.lastName}
-                required
-            />
+            <Row>
+                <Input
+                    name="firstName"
+                    label="First Name"
+                    placeholder="John"
+                    {...register('firstName', { required: true })}
+                    error={errors.firstName}
+                    required
+                />
+                <Input
+                    name="lastName"
+                    label="Last Name"
+                    placeholder="Doe"
+                    {...register('lastName', { required: true })}
+                    error={errors.lastName}
+                    required
+                />
+            </Row>
             <Input
                 name="email"
                 type="email"
