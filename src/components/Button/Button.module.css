@@ -21,7 +21,9 @@
     background-color: var(--secondary-variant);
 }
 
-.disabled {}
+.disabled {
+    opacity: .5;
+}
 
 .disabled:hover {
     cursor: not-allowed;

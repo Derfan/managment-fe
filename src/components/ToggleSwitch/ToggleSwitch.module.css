@@ -1,0 +1,37 @@
+.root {
+    --slider-width: 50px;
+    --element-size: 20px;
+    --element-padding: 3px;
+
+    cursor: pointer;
+    position: relative;
+    width: var(--slider-width);
+    height: calc(var(--element-size) + 2 * var(--element-padding));
+    background: var(--secondary);
+    border-radius: 20px;
+}
+
+.root > input {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+.root > input:checked + .element {
+    --position: calc(var(--slider-width) - var(--element-size) - var(--element-padding));
+
+    transform: translate(var(--position), -50%);
+}
+
+.element {
+    position: absolute;
+    top: 50%;
+    transform: translate(var(--element-padding), -50%);
+
+    width: var(--element-size);
+    height: var(--element-size);
+    background-color: white;
+    border-radius: 50%;
+
+    transition: transform .3s;
+}

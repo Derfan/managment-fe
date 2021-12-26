@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 
-import { Title, Button } from "../../components";
+import { Title, Button, ToggleSwitch } from "../../components";
 import { ThemeSwitcher } from "../ThemeSwitcher";
 import { AuthContext } from "../Auth";
 import { LOGOUT } from "../../api";
@@ -25,6 +25,8 @@ export const Header = () => {
             </Title>
 
             <ThemeSwitcher />
+
+            <ToggleSwitch />
 
             {isAuth 
             ? <Button className={cn.btn} onClick={clickHandler}>Log Out</Button>

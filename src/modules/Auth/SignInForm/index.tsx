@@ -9,7 +9,7 @@ import { Form, Input, Button } from '../../../components';
 import { AuthContext } from '../AuthProvider';
 
 export function SignInForm() {
-    const [loginUser] = useMutation(LOGIN);
+    const [loginUser, { loading }] = useMutation(LOGIN);
     const { login } = useContext(AuthContext);
     const navigate = useNavigate();
     const { handleSubmit, register, formState: { errors } } = useForm();
@@ -56,7 +56,9 @@ export function SignInForm() {
                 required
             />
 
-            <Button type="submit">Submit</Button>
+            <Button type="submit" disabled={loading}>
+                {loading ? "Submitting..." : "Submit"}
+            </Button>
         </Form>
     )
 }

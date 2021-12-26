@@ -6,6 +6,7 @@ body.light-theme {
 
   --background: #E9E5E0;
   --surface: #ffffff;
+  --input: #EEF2F7;
   --error: #b00020;
 
   /* font */
@@ -24,6 +25,7 @@ body.dark-theme {
 
   --background: #0e0e0e;
   --surface: #242424;
+  --input: #1A1A1A;
   --error: #b00020;
 
   /* font */

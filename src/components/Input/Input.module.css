@@ -13,7 +13,7 @@
 }
 
 .inputField {
-    background-color: #EEF2F7;
+    background-color: var(--input);
 
     padding: 15px 10px;
 
