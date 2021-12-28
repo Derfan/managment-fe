@@ -17,7 +17,7 @@
     cursor: pointer;
 }
 
-.button:focus {
+.button:active {
     background-color: var(--secondary-variant);
 }
 

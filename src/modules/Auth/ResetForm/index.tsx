@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form';
 
 import { Form, Input, Button } from '../../../components';
+import * as cn from './ResetForm.module.css';
 
 export function ResetForm({ setSubmitted }) {
     const { handleSubmit, register, formState: { errors } } = useForm();
@@ -11,7 +12,7 @@ export function ResetForm({ setSubmitted }) {
     }
 
     return (
-        <Form onSubmit={handleSubmit(onSubmit)}>
+        <Form onSubmit={handleSubmit(onSubmit)} className={cn.root}>
             <Input
                 name="email"
                 type="email"

@@ -5,12 +5,13 @@ import * as cn from "./Form.module.css";
 
 type PropsType = {
     className?: string
+    direction?: "column"|"row"
     onSubmit: () => void
 };
 
-export const Form:FunctionComponent<PropsType> = ({ className, children, onSubmit }) => {
+export const Form:FunctionComponent<PropsType> = ({ className, children, direction, onSubmit }) => {
     return (
-        <form className={cns(cn.form, className)} onSubmit={onSubmit}>
+        <form className={cns(cn.form, className)} style={{ flexDirection: direction }} onSubmit={onSubmit}>
             {children}
         </form>
     );
@@ -18,4 +19,5 @@ export const Form:FunctionComponent<PropsType> = ({ className, children, onSubmi
 
 Form.defaultProps = {
     className: "",
+    direction: "column",
 };

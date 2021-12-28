@@ -6,6 +6,7 @@ import { useMutation } from '@apollo/client';
 import { Form, Input, Button, Row } from '../../../components';
 import { CREATE_USER, LOGIN } from '../../../api';
 import { AuthContext } from '../AuthProvider';
+import * as cn from './SignUpForm.module.css';
 
 type FormData = {
     email:string
@@ -56,7 +57,7 @@ export function SignUpForm() {
     passwordRef.current = watch('password');
 
     return (
-        <Form onSubmit={handleSubmit(onSubmit)}>
+        <Form onSubmit={handleSubmit(onSubmit)} className={cn.root}>
             <Row>
                 <Input
                     name="firstName"

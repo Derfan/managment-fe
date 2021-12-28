@@ -7,6 +7,7 @@ import { useMutation } from "@apollo/client";
 import { LOGIN } from '../../../api';
 import { Form, Input, Button } from '../../../components';
 import { AuthContext } from '../AuthProvider';
+import * as cn from './SignInForm.module.css';
 
 export function SignInForm() {
     const [loginUser, { loading }] = useMutation(LOGIN);
@@ -22,7 +23,7 @@ export function SignInForm() {
     };
 
     return (
-        <Form onSubmit={handleSubmit(onSubmit)}>
+        <Form onSubmit={handleSubmit(onSubmit)} className={cn.root}>
             <Input
                 name="email"
                 type="email"
