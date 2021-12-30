@@ -6,16 +6,26 @@
     transition: background-color .2s;
 }
 
-tbody > .row:hover {
+.cell {
+    vertical-align: middle;
+}
+
+.headCell {
+    padding: var(--indent) 0;
+    background: var(--input);
+    color: var(--placeholder);
+
+    text-align: left;
+}
+
+.body {}
+
+.hovered > .row:hover {
     cursor: pointer;
     background-color: #2a2a2a;
 }
 
-.cell {}
-
-.head {}
-
-.loadingCell {
+.emptyCell {
     color: var(--placeholder);
     text-align: center;
 

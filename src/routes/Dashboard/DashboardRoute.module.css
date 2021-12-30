@@ -6,6 +6,10 @@
     margin-top: var(--indent);
 }
 
-.table {
+.content {
     margin: var(--indent) 0;
+}
+
+.card:hover {
+    cursor: pointer;
 }

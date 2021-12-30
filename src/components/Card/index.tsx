@@ -8,11 +8,12 @@ import * as cn from "./Card.module.css";
 type PropsType = {
   title?: string
   className?: string
+  onClick?: () => void
 }
 
-export const Card:FunctionComponent<PropsType> = ({ title, className, children }) => {
+export const Card:FunctionComponent<PropsType> = ({ title, className, children, onClick, ...rest }) => {
   return (
-    <div className={cns(cn.card, className)}>
+    <div className={cns(cn.card, className)} onClick={onClick} {...rest}>
       {title && (
         <>
           <Title tag="h3">{title}</Title>

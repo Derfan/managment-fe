@@ -1,16 +1,24 @@
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import { Header, AuthProvider } from "./modules";
 import { Loader } from "./components";
+import { useTheme } from "./hooks";
 
 const HomeRoute = lazy(() => import('./routes/Home'));
 const SignInRoute = lazy(() => import('./routes/SignIn'));
 const SignUpRoute = lazy(() => import('./routes/SignUp'));
 const ResetRoute = lazy(() => import('./routes/Reset'));
+const DashboardRoute = lazy(() => import('./routes/Dashboard'));
 const CustomersRoute = lazy(() => import('./routes/Customers'));
 
 export function App() {
+  const { theme, setTheme } = useTheme();
+
+  useEffect(() => {
+      setTheme(theme);
+  }, []);
+
   return (
     <AuthProvider>
       <Header />
@@ -21,6 +29,7 @@ export function App() {
           <Route path="/sign-in" element={<SignInRoute />} />
           <Route path="/sign-up" element={<SignUpRoute />} />
           <Route path="/reset" element={<ResetRoute />} />
+          <Route path="/dashboard" element={<DashboardRoute />} />
           <Route path="/customers" element={<CustomersRoute />} />
         </Routes>
       </Suspense>

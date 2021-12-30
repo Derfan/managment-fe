@@ -1,0 +1,11 @@
+.card {
+    overflow: hidden;
+}
+
+.scroll {
+    overflow: auto;
+}
+
+.picture {
+    border-radius: 5px;
+}

@@ -6,7 +6,7 @@ export const Navigation = () => {
     return (
         <div className={cn.root}>
             <Link to="/">Home</Link>
-            <Link to="/customers">Customers</Link>
+            <Link to="/dashboard">Dashboard</Link>
         </div>
     );
 };

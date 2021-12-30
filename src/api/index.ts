@@ -45,23 +45,57 @@ export const DELETE_USER = gql`
   }
 `;
 
+const CLIENT_FRAGMENT = gql`
+  fragment CoreClientFields on Client {
+    email
+    name {
+      title
+      first
+      last
+    }
+    gender
+    dob {
+      age
+    }
+    picture {
+      medium
+    }
+    nat
+  }
+`;
+
+export const GET_DASHBOARD_INFORMATION = gql`
+  ${CLIENT_FRAGMENT}
+
+  query Dashboard($pageSize: Int!) {
+    element1: clients(search: { pageSize: $pageSize, page: 1 }) {
+      ...CoreClientFields
+    }
+
+    element2: clients(search: { pageSize: $pageSize, page: 2 }) {
+      ...CoreClientFields
+    }
+
+    element3: clients(search: { pageSize: $pageSize, page: 3 }) {
+      ...CoreClientFields
+    }
+
+    element4: clients(search: { pageSize: $pageSize, page: 4 }) {
+      ...CoreClientFields
+    }
+
+    element5: clients(search: { pageSize: $pageSize, page: 5 }) {
+      ...CoreClientFields
+    }
+  }
+`;
+
 export const GET_CUSTOMERS = gql`
+  ${CLIENT_FRAGMENT}
+
   query Clients($search: Search!) {
     clients(search: $search) {
-      email
-      name {
-        title
-        first
-        last
-      }
-      gender
-      dob {
-        age
-      }
-      picture {
-        medium
-      }
-      nat
+      ...CoreClientFields
     }
   }
 `;

@@ -1,12 +1,12 @@
 import { useQuery } from "@apollo/client";
 
 import { GET_CUSTOMERS } from "../../api";
+import { CustomersTable } from "../../modules";
 import { Title } from "../../components";
 import { Controls } from "./Controls";
-import { CustomersTable } from "./CustomersTable";
-import * as cn from "./Customers.module.css"
+import * as cn from "./Customers.module.css";
 
-const search = { page: 1, pageSize: 5 };
+const search = { page: 1, pageSize: 20 };
 
 export const CustomersRoute = () => {
     const { data, loading, error } = useQuery(GET_CUSTOMERS, { variables: { search } });
@@ -16,12 +16,8 @@ export const CustomersRoute = () => {
             <Title tag="h3" className={cn.title}>Customers</Title>
 
             <Controls />
-            
-            <div className={cn.content}>
-                <CustomersTable source={data?.clients} loading={loading} />
 
-                <CustomersTable source={data?.clients} loading={loading} />
-            </div>
+            <CustomersTable source={data?.clients} loading={loading} className={cn.table} hovered />
         </div>
     );
 };

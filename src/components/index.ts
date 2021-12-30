@@ -10,3 +10,4 @@ export { RadioGroup } from './RadioGroup';
 export { ToggleSwitch } from './ToggleSwitch';
 export { Row } from './Row';
 export { Table } from './Table';
+export { EditableLayout } from './EditableLayout';
