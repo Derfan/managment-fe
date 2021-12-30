@@ -13,7 +13,7 @@ export const DashboardRoute = memo(() => {
     const navigate = useNavigate();
     const { data, loading, error } = useQuery(
         GET_DASHBOARD_INFORMATION,
-        { variables: { pageSize: 5 }, errorPolicy: 'all' },
+        { variables: { page: 1, pageSize: 5 }, errorPolicy: 'all' },
     );
 
     console.log('error', error?.graphQLErrors);
