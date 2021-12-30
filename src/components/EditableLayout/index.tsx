@@ -4,8 +4,8 @@ import cns from "classnames";
 import * as cn from "./EditableLayout.module.css";
 
 type Props = {
-    className?: string
     template: string[]
+    className?: string
 };
 
 export const EditableLayout:FunctionComponent<Props> = ({ className, template, children }) => {

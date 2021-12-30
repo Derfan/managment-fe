@@ -7,3 +7,7 @@
     align-items: center;
     gap: var(--indent);
 }
+
+.title {
+    font-size: 4em;
+}

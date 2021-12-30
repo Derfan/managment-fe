@@ -10,7 +10,7 @@ import * as cn from "./Header.module.css";
 
 export const Header = () => {
     const { isAuth, logout } = useContext(AuthContext);
-    const [logoutUser, { client }] = useMutation(LOGOUT);
+    const [logoutUser, { loading, client }] = useMutation(LOGOUT);
 
     const clickHandler = async () => {
         await logoutUser();
@@ -30,7 +30,7 @@ export const Header = () => {
 
             {isAuth
                 ? (
-                    <Button className={cn.btn} onClick={clickHandler}>Log Out</Button>
+                    <Button className={cn.btn} onClick={clickHandler} disabled={loading}>Log Out</Button>
                 )
                 : (
                     <div className={cn.links}>
