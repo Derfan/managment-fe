@@ -25,7 +25,6 @@
 .link > svg {
     width: 30px;
     height: 30px;
-    fill: var(--placeholder);
     stroke: var(--placeholder);
 }
 
@@ -35,7 +34,6 @@
 }
 
 .link:hover > svg {
-    fill: var(--on-surface);
     stroke: var(--on-surface);
 }
 
@@ -44,6 +42,5 @@
 }
 
 .active > svg {
-    fill: var(--on-surface);
     stroke: var(--on-surface);
 }

@@ -40,7 +40,7 @@ const useSignUpUser = () => {
         const { data } = await loginUser({ variables: { email: userData.email, password: userData.password } });
 
         login(data.login.token);
-        navigate('/');
+        navigate('/dashboard');
     }, []);
 };
 

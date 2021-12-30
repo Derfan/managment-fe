@@ -87,6 +87,18 @@ export const GET_DASHBOARD_INFORMATION = gql`
     element5: clients(search: { pageSize: $pageSize, page: 5 }) {
       ...CoreClientFields
     }
+
+    element6: clients(search: { pageSize: $pageSize, page: 6 }) {
+      ...CoreClientFields
+    }
+
+    element7: clients(search: { pageSize: $pageSize, page: 7 }) {
+      ...CoreClientFields
+    }
+
+    element8: clients(search: { pageSize: $pageSize, page: 8 }) {
+      ...CoreClientFields
+    }
   }
 `;
 

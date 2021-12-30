@@ -19,7 +19,7 @@ export function SignInForm() {
         const { data } = await loginUser({ variables: { email, password } });
         
         login(data.login.token);
-        navigate('/');
+        navigate('/dashboard');
     };
 
     return (

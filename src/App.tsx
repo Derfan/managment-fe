@@ -9,6 +9,7 @@ const HomeRoute = lazy(() => import('./routes/Home'));
 const SignInRoute = lazy(() => import('./routes/SignIn'));
 const SignUpRoute = lazy(() => import('./routes/SignUp'));
 const ResetRoute = lazy(() => import('./routes/Reset'));
+const NotFoundRoute = lazy(() => import('./routes/NotFoundRoute'));
 
 import { DashboardRoute, CustomersRoute, SettingsRoute } from "./routes";
 
@@ -34,6 +35,8 @@ export function App() {
           <Route path="/dashboard" element={<DashboardRoute />} />
           <Route path="/customers" element={<CustomersRoute />} />
           <Route path="/settings" element={<SettingsRoute />} />
+
+          <Route path="/*" element={<NotFoundRoute />} />
         </Routes>
       </Suspense>
     </AuthProvider>

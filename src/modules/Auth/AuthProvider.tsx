@@ -1,9 +1,11 @@
-import { FunctionComponent, createContext, useState, useRef } from "react";
+import { FunctionComponent, createContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext({ isAuth: true, login: (token:string) => {}, logout: () => {} });
 
 export const AuthProvider:FunctionComponent = ({ children }) => {
     const [isAuth, setIsAuth] = useState(!!window.localStorage.getItem('token'));
+    const navigate = useNavigate();
 
     const login = (token:string) => {
         window.localStorage.setItem('token', token);
@@ -12,6 +14,7 @@ export const AuthProvider:FunctionComponent = ({ children }) => {
     const logout = () => {
         window.localStorage.removeItem('token');
         setIsAuth(false);
+        navigate('/sign-in');
     };
 
     return (

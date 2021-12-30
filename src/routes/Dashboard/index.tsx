@@ -24,7 +24,7 @@ export const DashboardRoute = memo(() => {
 
             <EditableLayout
                 className={cn.content}
-                template={['el1 el2 el2', 'el3 el3 el4', 'el5 el5 el5']}
+                template={['el1 el2 el3', 'el4 el4 el5', 'el6 el7 el7', 'el8 el8 el8']}
             >
                 <CustomersTable
                     title="Customers 1"
@@ -63,11 +63,38 @@ export const DashboardRoute = memo(() => {
                 />
 
                 <CustomersTable
+                    title="Customers 5"
                     className={cns({ [cn.card]: data?.element5?.length })}
                     source={data?.element5} 
                     loading={loading} 
                     style={{ gridArea: 'el5' }}
                     onClick={() => data?.element5?.length && navigate('/customers')}
+                />
+
+                <CustomersTable
+                    title="Customers 6"
+                    className={cns({ [cn.card]: data?.element6?.length })}
+                    source={data?.element6} 
+                    loading={loading} 
+                    style={{ gridArea: 'el6' }}
+                    onClick={() => data?.element6?.length && navigate('/customers')}
+                />
+
+                <CustomersTable
+                    title="Customers 7"
+                    className={cns({ [cn.card]: data?.element7?.length })}
+                    source={data?.element7} 
+                    loading={loading} 
+                    style={{ gridArea: 'el7' }}
+                    onClick={() => data?.element7?.length && navigate('/customers')}
+                />
+
+                <CustomersTable
+                    className={cns({ [cn.card]: data?.element8?.length })}
+                    source={data?.element8} 
+                    loading={loading} 
+                    style={{ gridArea: 'el8' }}
+                    onClick={() => data?.element8?.length && navigate('/customers')}
                 />
             </EditableLayout>
         </Layout>

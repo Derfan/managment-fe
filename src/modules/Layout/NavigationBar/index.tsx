@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import cns from "classnames";
 
-import { SettingsIcon, DashboardIcon, CustomersIcon } from "./icons";
+import { SettingsIcon, DashboardIcon } from "./icons";
 
 import * as cn from "./NavigationBar.module.css";
 
@@ -13,11 +13,6 @@ export const NavigationBar = () => {
             <NavLink to="/dashboard" className={handleClassNames}>
                 <DashboardIcon />
                 <span>Dashboard</span>
-            </NavLink>
-
-            <NavLink to="/customers" className={handleClassNames}>
-                <CustomersIcon />
-                <span>Customers</span>
             </NavLink>
 
             <NavLink to="/settings" className={handleClassNames}>
