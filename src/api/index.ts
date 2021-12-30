@@ -105,7 +105,7 @@ export const GET_DASHBOARD_INFORMATION = gql`
 export const GET_CUSTOMERS = gql`
   ${CLIENT_FRAGMENT}
 
-  query Clients($search: Search!) {
+  query Clients($search: ClientSearch!) {
     clients(search: $search) {
       ...CoreClientFields
     }

@@ -19,7 +19,7 @@ type Props = {
     required?: boolean
     error?: ErrorType
     onChange: ChangeHandler
-    onBlur: ChangeHandler
+    onBlur?: ChangeHandler
 };
 
 enum DefaultErrorMessages {

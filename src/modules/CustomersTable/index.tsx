@@ -1,4 +1,5 @@
 import cns from "classnames";
+import { useEffect } from "react";
 
 import { Table, Card } from "../../components";
 

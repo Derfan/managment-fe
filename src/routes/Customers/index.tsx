@@ -6,10 +6,11 @@ import { Title } from "../../components";
 import { Controls } from "./Controls";
 import * as cn from "./Customers.module.css";
 
-const search = { page: 1, pageSize: 20 };
-
 export const CustomersRoute = () => {
-    const { data, loading, error } = useQuery(GET_CUSTOMERS, { variables: { search } });
+    const { data, loading, error } = useQuery(
+        GET_CUSTOMERS,
+        { variables: { search: { seed: "fd07089cb237e72c", pageSize: 20, page: 1 } } },
+    );
 
     return (
         <Layout>

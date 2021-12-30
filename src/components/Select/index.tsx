@@ -3,6 +3,7 @@ import cns from "classnames";
 
 import { Label } from "../Label";
 import * as cn from "./Select.module.css";
+import { ChangeHandler } from "react-hook-form";
 
 type Value = string;
 
@@ -13,17 +14,19 @@ type Props = {
     defaultValue?: Value
     placeholder?: string
     required?: boolean
+    multiple?: boolean
     className?: string
-    onChange: (value:Value) => void
+    onChange: ChangeHandler
+    onBlur?: ChangeHandler
 };
 
-export const Select:FunctionComponent<Props> = forwardRef(({ name, label, options, defaultValue, placeholder, required, className, onChange }, ref:any) => {
+export const Select:FunctionComponent<Props> = forwardRef(({ name, label, options, defaultValue, placeholder, multiple, required, className, onChange, onBlur }, ref:any) => {
     const [value, setValue] = useState(defaultValue);
 
     const changeHandler = (event) => {
         const { value } = event.target;
         setValue(value);
-        onChange(value);
+        onChange(event);
     };
 
     return (
@@ -35,7 +38,9 @@ export const Select:FunctionComponent<Props> = forwardRef(({ name, label, option
                 id={name}
                 name={name}
                 className={cns(cn.input, { [cn.placeholder]: value === "" })}
+                multiple={multiple}
                 onChange={changeHandler}
+                onBlur={onBlur}
             >
                 {!!placeholder && (
                     <option value="">
@@ -54,4 +59,6 @@ Select.defaultProps = {
     placeholder: '',
     className: '',
     defaultValue: '',
+    multiple: false,
+    required: false,
 };
