@@ -16,7 +16,7 @@
     color: var(--placeholder);
     text-decoration: none;
 
-    padding: 5px var(--indent) 5px 5px;
+    padding: 5px var(--indent);
     border-radius: 0 5px 5px 0;
 
     transition: all .3s;
