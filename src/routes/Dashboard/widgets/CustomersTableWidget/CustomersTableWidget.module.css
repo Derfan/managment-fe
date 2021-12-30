@@ -1,0 +1,7 @@
+.card:hover {
+    cursor: pointer;
+}
+
+.scroll {
+    overflow: auto;
+}

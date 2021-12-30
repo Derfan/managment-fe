@@ -8,6 +8,7 @@ import * as cn from "./Card.module.css";
 type PropsType = {
   title?: string
   className?: string
+  style?: object
   onClick?: () => void
 }
 

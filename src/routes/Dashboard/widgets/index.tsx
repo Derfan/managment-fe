@@ -1,0 +1,1 @@
+export { CustomersTableWidget } from './CustomersTableWidget';
