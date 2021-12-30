@@ -1,0 +1,9 @@
+.root {
+    flex: 1;
+    display: flex;
+}
+
+.content {
+    flex: 1;
+    margin: 0 var(--indent);
+}

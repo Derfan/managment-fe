@@ -14,3 +14,8 @@
 .btn {
     max-width: 150px;
 }
+
+.links {
+    display: flex;
+    gap: var(--indent);
+}

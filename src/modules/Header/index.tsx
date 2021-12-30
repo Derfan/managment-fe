@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 
 import { Title, Button, ToggleSwitch } from "../../components";
-import { ThemeSwitcher } from "../ThemeSwitcher";
 import { AuthContext } from "../Auth";
 import { Navigation } from "./Navigation";
 import { LOGOUT } from "../../api";
@@ -29,20 +28,17 @@ export const Header = () => {
 
             <ToggleSwitch />
 
-            <div>
-                <ThemeSwitcher />
-
-                {isAuth
-                    ? (
-                        <Button className={cn.btn} onClick={clickHandler}>Log Out</Button>
-                    )
-                    :(
-                        <div>
-                            <p><Link to="/sign-in">Sign In</Link></p>
-                            <p><Link to="/sign-up">Sign Up</Link></p>
-                        </div>
-                    )}
-            </div>
+            {isAuth
+                ? (
+                    <Button className={cn.btn} onClick={clickHandler}>Log Out</Button>
+                )
+                : (
+                    <div className={cn.links}>
+                        <p><Link to="/sign-in">Sign In</Link></p>
+                        <p><Link to="/sign-up">Sign Up</Link></p>
+                    </div>
+                )
+            }
         </header>
     )
 };

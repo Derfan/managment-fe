@@ -4,7 +4,7 @@ import { useQuery } from "@apollo/client";
 import cns from "classnames";
 
 import { GET_DASHBOARD_INFORMATION } from "../../api";
-import { CustomersTable } from "../../modules";
+import { CustomersTable, Layout } from "../../modules";
 import { Title, EditableLayout } from "../../components";
 
 import * as cn from './DashboardRoute.module.css';
@@ -19,7 +19,7 @@ export const DashboardRoute = memo(() => {
     console.log('error', error?.graphQLErrors);
 
     return (
-        <div className={cn.root}>
+        <Layout>
             <Title tag="h3" className={cn.title}>Dashboard</Title>
 
             <EditableLayout
@@ -44,7 +44,7 @@ export const DashboardRoute = memo(() => {
                     onClick={() => data?.element2?.length && navigate('/customers')}
                 />
 
-                <CustomersTable 
+                <CustomersTable
                     title="Customers 3"
                     className={cns({ [cn.card]: data?.element3?.length })}
                     source={data?.element3} 
@@ -70,7 +70,7 @@ export const DashboardRoute = memo(() => {
                     onClick={() => data?.element5?.length && navigate('/customers')}
                 />
             </EditableLayout>
-        </div>
+        </Layout>
     );
 });
 

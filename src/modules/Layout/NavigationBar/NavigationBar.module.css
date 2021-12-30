@@ -1,0 +1,49 @@
+.navigation {
+    display: flex;
+    flex-direction: column;
+    gap: var(--indent);
+
+    padding: var(--indent) 10px var(--indent) 0;
+
+    background-color: var(--surface);
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    color: var(--placeholder);
+    text-decoration: none;
+
+    padding: 5px var(--indent) 5px 5px;
+    border-radius: 0 5px 5px 0;
+
+    transition: all .3s;
+}
+
+.link > svg {
+    width: 30px;
+    height: 30px;
+    fill: var(--placeholder);
+    stroke: var(--placeholder);
+}
+
+.link:hover {
+    color: var(--on-surface);
+    background-color: rgba(185, 185, 185, .5);
+}
+
+.link:hover > svg {
+    fill: var(--on-surface);
+    stroke: var(--on-surface);
+}
+
+.active {
+    color: var(--on-surface);
+}
+
+.active > svg {
+    fill: var(--on-surface);
+    stroke: var(--on-surface);
+}

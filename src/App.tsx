@@ -9,8 +9,8 @@ const HomeRoute = lazy(() => import('./routes/Home'));
 const SignInRoute = lazy(() => import('./routes/SignIn'));
 const SignUpRoute = lazy(() => import('./routes/SignUp'));
 const ResetRoute = lazy(() => import('./routes/Reset'));
-const DashboardRoute = lazy(() => import('./routes/Dashboard'));
-const CustomersRoute = lazy(() => import('./routes/Customers'));
+
+import { DashboardRoute, CustomersRoute, SettingsRoute } from "./routes";
 
 export function App() {
   const { theme, setTheme } = useTheme();
@@ -26,11 +26,14 @@ export function App() {
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<HomeRoute />} />
+
           <Route path="/sign-in" element={<SignInRoute />} />
           <Route path="/sign-up" element={<SignUpRoute />} />
           <Route path="/reset" element={<ResetRoute />} />
+
           <Route path="/dashboard" element={<DashboardRoute />} />
           <Route path="/customers" element={<CustomersRoute />} />
+          <Route path="/settings" element={<SettingsRoute />} />
         </Routes>
       </Suspense>
     </AuthProvider>

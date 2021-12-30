@@ -2,7 +2,8 @@
 @import url('./themes.css');
 
 html, body {
-    box-sizing: border-box;
+  box-sizing: border-box;
+  height: 100%;
 }
 
 body {
@@ -14,6 +15,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
 }
 
 a {
