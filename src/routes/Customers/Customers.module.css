@@ -1,0 +1,15 @@
+.root {
+    margin: 0 var(--indent);
+}
+
+.title {
+    margin-top: var(--indent);
+}
+
+.content {
+    margin-top: var(--indent);
+
+    display: grid;
+    gap: var(--indent);
+    grid-template-columns: repeat(2, 1fr);
+}

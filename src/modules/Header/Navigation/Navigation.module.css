@@ -1,4 +1,4 @@
 .root {
     display: flex;
-    column-gap: 15px;
+    column-gap: var(--indent);
 }

@@ -1,0 +1,23 @@
+.table {
+    min-width: 100%;
+}
+
+.row {
+    transition: background-color .2s;
+}
+
+tbody > .row:hover {
+    cursor: pointer;
+    background-color: #2a2a2a;
+}
+
+.cell {}
+
+.head {}
+
+.loadingCell {
+    color: var(--placeholder);
+    text-align: center;
+
+    padding: var(--indent);
+}

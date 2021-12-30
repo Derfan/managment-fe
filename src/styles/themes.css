@@ -1,3 +1,8 @@
+body {
+  --indent: 15px;
+  --placeholder: #8e8e8e;
+}
+
 body.light-theme {
   --primary: #6200ee;
   --primary-variant: #3700b3;
@@ -14,6 +19,7 @@ body.light-theme {
   --on-secondary: #000000;
   --on-background: #000000;
   --on-surface: #000000;
+  --on-input: #000000;
   --on-error: #ffffff;
 }
 
@@ -33,5 +39,6 @@ body.dark-theme {
   --on-secondary: #000000;
   --on-background: #ffffff;
   --on-surface: #ffffff;
+  --on-input: #ffffff;
   --on-error: #ffffff;
 }

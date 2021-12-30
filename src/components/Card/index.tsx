@@ -15,7 +15,7 @@ export const Card:FunctionComponent<PropsType> = ({ title, className, children }
     <div className={cns(cn.card, className)}>
       {title && (
         <>
-          <Title>{title}</Title>
+          <Title tag="h3">{title}</Title>
           <Separator />
         </>
       )}
