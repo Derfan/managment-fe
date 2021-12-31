@@ -1,14 +1,15 @@
-import { FunctionComponent, useMemo } from "react";
+import { FunctionComponent, useMemo, Children, cloneElement } from "react";
 import cns from "classnames";
 
 import * as cn from "./EditableLayout.module.css";
 
 type Props = {
     template: string[]
+    draggable?: boolean
     className?: string
 };
 
-export const EditableLayout:FunctionComponent<Props> = ({ className, template, children }) => {
+export const EditableLayout:FunctionComponent<Props> = ({ className, draggable, template, children }) => {
     const gridTemplate = useMemo(
         () => template.reduce((acc, item) => `${acc} '${item}'`, ""),
         [],
@@ -16,7 +17,7 @@ export const EditableLayout:FunctionComponent<Props> = ({ className, template, c
 
     return (
         <div className={cns(cn.root, className)} style={{ gridTemplate }}>
-            {children}
+            {Children.map(children, child => cloneElement(child, { draggable }))}
         </div>
     );
 };

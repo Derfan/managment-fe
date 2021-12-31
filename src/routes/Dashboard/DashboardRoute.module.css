@@ -1,4 +1,7 @@
-.title {
+.header {
+    display: flex;
+    justify-content: space-between;
+
     margin-top: var(--indent);
 }
 

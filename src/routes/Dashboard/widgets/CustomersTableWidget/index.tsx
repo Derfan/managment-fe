@@ -5,7 +5,14 @@ import { CustomersTable } from "../../../../modules";
 import { Card } from "../../../../components";
 import * as cn from "./CustomersTableWidget.module.css";
 
-export const CustomersTableWidget = ({ idx, source, loading }) => {
+type Props = {
+    idx: number
+    source: { [key:string]: string|number }[]
+    loading: boolean
+    draggable?: boolean
+};
+
+export const CustomersTableWidget = ({ idx, source, loading, draggable }:Props) => {
     const navigate = useNavigate();
 
     return (
@@ -14,6 +21,7 @@ export const CustomersTableWidget = ({ idx, source, loading }) => {
             className={cns({ [cn.card]: source?.length })}
             style={{ gridArea: `el${idx}` }}
             onClick={() => source?.length && navigate('/customers')}
+            draggable={draggable}
         >
             <div className={cn.scroll}>
                 <CustomersTable

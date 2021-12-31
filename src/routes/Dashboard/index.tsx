@@ -1,31 +1,32 @@
-import { memo } from "react";
-import { useNavigate } from "react-router-dom";
+import { memo, useState } from "react";
 import { useQuery } from "@apollo/client";
-import cns from "classnames";
 
 import { GET_DASHBOARD_INFORMATION } from "../../api";
-import { CustomersTable, Layout } from "../../modules";
-import { Title, EditableLayout } from "../../components";
+import { Layout } from "../../modules";
+import { Title, EditableLayout, ToggleSwitch } from "../../components";
 import { CustomersTableWidget } from "./widgets";
 
 import * as cn from './DashboardRoute.module.css';
 
 export const DashboardRoute = memo(() => {
-    const navigate = useNavigate();
+    const [draggable, setDraggable] = useState(true);
     const { data, loading, error } = useQuery(
         GET_DASHBOARD_INFORMATION,
         { variables: { page: 1, pageSize: 5 }, errorPolicy: 'all' },
     );
 
-    console.log('error', error?.graphQLErrors);
-
     return (
         <Layout>
-            <Title tag="h3" className={cn.title}>Dashboard</Title>
+            <div className={cn.header}>
+                <Title tag="h3">Dashboard</Title>
+
+                <ToggleSwitch value={draggable} onChange={({ target }) => setDraggable(target.value)} />
+            </div>
 
             <EditableLayout
                 className={cn.content}
                 template={['el1 el2 el3', 'el4 el4 el5', 'el6 el7 el7', 'el8 el8 el8']}
+                draggable={draggable}
             >
                 <CustomersTableWidget
                     idx={1}

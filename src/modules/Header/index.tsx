@@ -26,8 +26,6 @@ export const Header = () => {
 
             <Navigation />
 
-            <ToggleSwitch />
-
             {isAuth
                 ? (
                     <Button className={cn.btn} onClick={clickHandler} disabled={loading}>Log Out</Button>

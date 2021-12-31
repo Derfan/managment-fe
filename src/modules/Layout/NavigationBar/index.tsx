@@ -10,6 +10,11 @@ export const NavigationBar = () => {
 
     return (
         <nav className={cn.navigation}>
+            <NavLink to="/tasks" className={handleClassNames}>
+                <DashboardIcon />
+                <span>Tasks</span>
+            </NavLink>
+
             <NavLink to="/dashboard" className={handleClassNames}>
                 <DashboardIcon />
                 <span>Dashboard</span>
