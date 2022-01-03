@@ -25,9 +25,9 @@ const Table = ({ source, loading, uniqField, hovered, className, children }:Prop
             </thead>
 
             <tbody className={cns(cn.body, { [cn.hovered]: hovered })}>
-                {source?.map(item => (
+                {source?.map((item, idx) => (
                     <tr key={item[uniqField]} className={cn.row}>
-                        {Children.map(children, child => cloneElement(child, { data: item }))}
+                        {Children.map(children, child => cloneElement(child, { idx, data: item }))}
                     </tr>
                 ))}
 
@@ -52,9 +52,9 @@ Table.defaultProps = {
     hovered: false,
 };
 
-const Column = ({ data, children, ...rest }) => {
+const Column = ({ idx, data, children, ...rest }) => {
     return (
-        <td className={cn.cell} {...rest}>{children(data)}</td>
+        <td className={cn.cell} {...rest}>{children(data, idx)}</td>
     )
 };
 

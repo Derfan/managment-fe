@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { forwardRef, FunctionComponent } from "react";
 import cns from "classnames";
 
 import * as cn from './Button.module.css';
@@ -10,9 +10,10 @@ type PropsType = {
     onClick?: () => void
 };
 
-export const Button:FunctionComponent<PropsType> = ({ type, className, children, disabled, onClick }) => {
+export const Button:FunctionComponent<PropsType> = forwardRef(({ type, className, children, disabled, onClick }, ref:any) => {
     return (
-        <button 
+        <button
+            ref={ref}
             type={type} 
             className={cns(cn.button, className, { [cn.disabled]: disabled })}
             onClick={onClick}
@@ -21,7 +22,7 @@ export const Button:FunctionComponent<PropsType> = ({ type, className, children,
             {children}
         </button>
     );
-}
+})
 
 Button.defaultProps = {
     type: "button",

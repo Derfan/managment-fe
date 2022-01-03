@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { forwardRef, FunctionComponent } from "react";
 import cns from "classnames";
 
 import { Title } from "../Title";
@@ -16,9 +16,9 @@ type PropsType = {
   onClick?: () => void
 }
 
-export const Card:FunctionComponent<PropsType> = ({ title, className, children, ...rest }) => {
+export const Card:FunctionComponent<PropsType> = forwardRef(({ title, className, children, ...rest }, ref:any) => {
   return (
-    <div className={cns(cn.card, className)} {...rest}>
+    <div ref={ref} className={cns(cn.card, className)} {...rest}>
       {title && (
         <>
           <Title tag="h3">{title}</Title>
@@ -28,4 +28,4 @@ export const Card:FunctionComponent<PropsType> = ({ title, className, children, 
       {children}
     </div>
   )
-}
+});

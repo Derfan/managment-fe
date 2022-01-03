@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { forwardRef, FunctionComponent } from "react";
 import cns from "classnames";
 
 import * as cn from "./Title.module.css";
@@ -8,9 +8,10 @@ type PropsType = {
   className?: string
 };
 
-export const Title:FunctionComponent<PropsType> = ({ tag: Tag, className, children }) => {
+export const Title:FunctionComponent<PropsType> = forwardRef(({ tag: Tag, className, children }, ref) => {
   return (
     <Tag
+      ref={ref}
       className={
         cns(
           cn.title,
@@ -26,7 +27,7 @@ export const Title:FunctionComponent<PropsType> = ({ tag: Tag, className, childr
       {children}
     </Tag>
   )
-}
+})
 
 Title.defaultProps = {
   tag: "h3"
