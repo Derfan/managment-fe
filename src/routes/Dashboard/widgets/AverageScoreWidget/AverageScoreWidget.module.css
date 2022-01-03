@@ -1,0 +1,17 @@
+.card, .circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circle {
+    color: var(--placeholder);
+    font-size: 4em;
+    font-weight: 700;
+
+    width: 300px;
+    height: 300px;
+
+    border: 40px solid var(--placeholder);
+    border-radius: 50%;
+}

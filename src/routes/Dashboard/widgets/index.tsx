@@ -1,1 +1,2 @@
-export { CustomersTableWidget } from './CustomersTableWidget';
+export { AverageScoreWidget } from './AverageScoreWidget';
+export { EmployeesTableWidget } from './EmployeesTableWidget';

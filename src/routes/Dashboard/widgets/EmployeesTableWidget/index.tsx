@@ -3,23 +3,23 @@ import cns from "classnames";
 
 import { CustomersTable } from "../../../../modules";
 import { Card } from "../../../../components";
-import * as cn from "./CustomersTableWidget.module.css";
+import * as cn from "./EmployeesTableWidget.module.css";
 
 type Props = {
-    idx: number
     source: { [key:string]: string|number }[]
     loading: boolean
+    gridArea: string
     draggable?: boolean
 };
 
-export const CustomersTableWidget = ({ idx, source, loading, draggable }:Props) => {
+export const EmployeesTableWidget = ({ source, loading, draggable, gridArea }:Props) => {
     const navigate = useNavigate();
 
     return (
         <Card
-            title={`Customers ${idx}`}
+            title="Employees"
             className={cns({ [cn.card]: source?.length })}
-            style={{ gridArea: `el${idx}` }}
+            style={{ gridArea }}
             onClick={() => source?.length && navigate('/customers')}
             draggable={draggable}
         >

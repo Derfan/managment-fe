@@ -1,15 +1,14 @@
-import { memo, useState } from "react";
+import { memo } from "react";
 import { useQuery } from "@apollo/client";
 
 import { GET_DASHBOARD_INFORMATION } from "../../api";
 import { Layout } from "../../modules";
-import { Title, EditableLayout, ToggleSwitch } from "../../components";
-import { CustomersTableWidget } from "./widgets";
+import { Title, EditableLayout } from "../../components";
+import { AverageScoreWidget, EmployeesTableWidget } from "./widgets";
 
 import * as cn from './DashboardRoute.module.css';
 
 export const DashboardRoute = memo(() => {
-    const [draggable, setDraggable] = useState(true);
     const { data, loading, error } = useQuery(
         GET_DASHBOARD_INFORMATION,
         { variables: { page: 1, pageSize: 5 }, errorPolicy: 'all' },
@@ -21,25 +20,15 @@ export const DashboardRoute = memo(() => {
 
             <EditableLayout
                 className={cn.content}
-                template={['el1 el2 el2', 'el3 el3 el3']}
-                draggable={draggable}
+                template={[['score', 'employees', 'employees']]}
+                draggable={false}
             >
-                <CustomersTableWidget
-                    idx={1}
-                    source={data?.element1}
-                    loading={loading}
-                />
+                <AverageScoreWidget score={7.4} gridArea="score" />
 
-                <CustomersTableWidget
-                    idx={2}
-                    source={data?.element2}
+                <EmployeesTableWidget
+                    source={data?.employees}
                     loading={loading}
-                />
-
-                <CustomersTableWidget
-                    idx={3}
-                    source={data?.element3}
-                    loading={loading}
+                     gridArea="employees"
                 />
             </EditableLayout>
         </Layout>

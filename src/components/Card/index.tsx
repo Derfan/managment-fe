@@ -16,17 +16,9 @@ type PropsType = {
   onClick?: () => void
 }
 
-export const Card:FunctionComponent<PropsType> = ({ title, className, draggable, children, onDragStart, onDragOver, onDrop, onClick, ...rest }) => {
+export const Card:FunctionComponent<PropsType> = ({ title, className, children, ...rest }) => {
   return (
-    <div
-      className={cns(cn.card, className)}
-      onClick={onClick}
-      onDragStart={onDragStart}
-      onDragOver={onDragOver}
-      onDrop={onDrop}
-      draggable={draggable}
-      {...rest}
-    >
+    <div className={cns(cn.card, className)} {...rest}>
       {title && (
         <>
           <Title tag="h3">{title}</Title>
