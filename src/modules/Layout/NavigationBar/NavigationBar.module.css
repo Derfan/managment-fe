@@ -4,8 +4,6 @@
     gap: var(--indent);
 
     padding: var(--indent) 10px var(--indent) 0;
-
-    background-color: var(--surface);
 }
 
 .link {
@@ -17,7 +15,6 @@
     text-decoration: none;
 
     padding: 5px var(--indent);
-    border-radius: 0 5px 5px 0;
 
     transition: all .3s;
 }
@@ -30,7 +27,6 @@
 
 .link:hover {
     color: var(--on-surface);
-    background-color: rgba(185, 185, 185, .5);
 }
 
 .link:hover > svg {
@@ -39,6 +35,7 @@
 
 .active {
     color: var(--on-surface);
+    text-decoration: underline;
 }
 
 .active > svg {

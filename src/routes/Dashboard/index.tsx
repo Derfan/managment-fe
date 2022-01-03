@@ -17,15 +17,11 @@ export const DashboardRoute = memo(() => {
 
     return (
         <Layout>
-            <div className={cn.header}>
-                <Title tag="h3">Dashboard</Title>
-
-                <ToggleSwitch value={draggable} onChange={({ target }) => setDraggable(target.value)} />
-            </div>
+            <Title tag="h3" className={cn.title}>Dashboard</Title>
 
             <EditableLayout
                 className={cn.content}
-                template={['el1 el2 el3', 'el4 el4 el5', 'el6 el7 el7', 'el8 el8 el8']}
+                template={['el1 el2 el2', 'el3 el3 el3']}
                 draggable={draggable}
             >
                 <CustomersTableWidget
@@ -43,36 +39,6 @@ export const DashboardRoute = memo(() => {
                 <CustomersTableWidget
                     idx={3}
                     source={data?.element3}
-                    loading={loading}
-                />
-
-                <CustomersTableWidget
-                    idx={4}
-                    source={data?.element4}
-                    loading={loading}
-                />
-
-                <CustomersTableWidget
-                    idx={5}
-                    source={data?.element5}
-                    loading={loading}
-                />
-
-                <CustomersTableWidget
-                    idx={6}
-                    source={data?.element6}
-                    loading={loading}
-                />
-
-                <CustomersTableWidget
-                    idx={7}
-                    source={data?.element7}
-                    loading={loading}
-                />
-
-                <CustomersTableWidget
-                    idx={8}
-                    source={data?.element8}
                     loading={loading}
                 />
             </EditableLayout>

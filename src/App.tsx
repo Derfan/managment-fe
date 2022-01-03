@@ -11,7 +11,7 @@ const SignUpRoute = lazy(() => import('./routes/SignUp'));
 const ResetRoute = lazy(() => import('./routes/Reset'));
 const NotFoundRoute = lazy(() => import('./routes/NotFoundRoute'));
 
-import { DashboardRoute, CustomersRoute, SettingsRoute, TasksRoute } from "./routes";
+import { DashboardRoute, CustomersRoute, SettingsRoute } from "./routes";
 
 export function App() {
   const { theme, setTheme } = useTheme();
@@ -33,7 +33,6 @@ export function App() {
           <Route path="/reset" element={<ResetRoute />} />
 
           <Route path="/dashboard" element={<DashboardRoute />} />
-          <Route path="/tasks" element={<TasksRoute />} />
           <Route path="/customers" element={<CustomersRoute />} />
           <Route path="/settings" element={<SettingsRoute />} />
 
