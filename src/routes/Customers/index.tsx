@@ -2,39 +2,11 @@ import { useRef, useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
 
 import { GET_CUSTOMERS } from "../../api";
+import { useElementOnScreen } from "../../hooks";
 import { CustomersTable, Layout } from "../../modules";
 import { Title, Card, Button } from "../../components";
 import { Controls } from "./Controls";
 import * as cn from "./Customers.module.css";
-
-const defaultOptions = { root: null, rootMargin: "0px", threshold: 1 };
-
-const useElementOnScreen = (options = defaultOptions, cb) => {
-    const elementRef = useRef(null);
-    const [isVisible, setIsVisible] = useState(false);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver((entries) => {
-            const [element] = entries;
-
-            setIsVisible(element.isIntersecting);
-
-            if (cb) cb();
-        }, options);
-
-        if (elementRef.current) {
-            observer.observe(elementRef.current);
-        }
-
-        return () => {
-            if (elementRef.current) {
-                observer.unobserve(elementRef.current);
-            }
-        };
-    }, [elementRef, options]);
-
-    return { elementRef, isVisible };
-};
 
 export const CustomersRoute = () => {
     const page = useRef(1);
